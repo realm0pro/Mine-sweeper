@@ -23,10 +23,16 @@ namespace Mine_sweeper
         public Form1()
         {
             InitializeComponent();
+            SetUpNewGame();
+        }
+
+        private void SetUpNewGame()
+        {
             button_placement();
             bomb_placement();
             numberplacement();
         }
+
         void button_placement()
         {
 
@@ -349,7 +355,21 @@ namespace Mine_sweeper
         {
             if (sender is Button button)
             {
-                
+                // todo: wipe old game
+                DeleteOldButtons();
+
+                SetUpNewGame();
+            }
+        }
+
+        private void DeleteOldButtons()
+        {
+            foreach (var item in Controls)
+            {
+                if (item is Button button)
+                {
+                    this.Controls.Remove(button);
+                }
             }
         }
     }
