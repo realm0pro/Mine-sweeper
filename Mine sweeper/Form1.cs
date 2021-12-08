@@ -355,10 +355,11 @@ namespace Mine_sweeper
         {
             if (sender is Button button)
             {
+                DisableButtons = false;
                 // todo: wipe old game
                 DeleteOldButtons();
 
-                SetUpNewGame();
+                //SetUpNewGame();
             }
         }
 
@@ -368,6 +369,12 @@ namespace Mine_sweeper
             {
                 if (item is Button button)
                 {
+                    if (button.Name == "resetButton")
+                    {
+                        continue;
+                    }
+                    bombs.Clear();
+                    buttons.Clear();
                     this.Controls.Remove(button);
                 }
             }
