@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.Appearance = new System.Windows.Forms.ToolStripDropDownButton();
@@ -35,6 +36,8 @@
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.resetButton = new System.Windows.Forms.Button();
             this.Bamount = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,11 +91,27 @@
             this.Bamount.Text = "70";
             this.Bamount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timer
+            // 
+            this.timer.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.1429F);
+            this.timer.Location = new System.Drawing.Point(944, 150);
+            this.timer.Name = "timer";
+            this.timer.Size = new System.Drawing.Size(149, 100);
+            this.timer.TabIndex = 3;
+            this.timer.Text = "000";
+            this.timer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1172, 1449);
+            this.Controls.Add(this.timer);
             this.Controls.Add(this.Bamount);
             this.Controls.Add(this.resetButton);
             this.Controls.Add(this.toolStrip1);
@@ -115,6 +134,8 @@
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Button resetButton;
         private System.Windows.Forms.Label Bamount;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label timer;
     }
 }
 

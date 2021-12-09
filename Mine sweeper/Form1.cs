@@ -19,6 +19,7 @@ namespace Mine_sweeper
         List<Button> buttons = new List<Button>();
         int row;
         int column;
+        int counter = 000;
 
         public Form1()
         {
@@ -115,6 +116,7 @@ namespace Mine_sweeper
                 }
                 else if (button.Text == bomb)
                 {
+                    timer1.Stop();
                     HitaBomb();
                 }
                 else
@@ -129,6 +131,7 @@ namespace Mine_sweeper
                             column = coord.Y;
                         }
                     }
+                    timer1.Start();
                     button.ForeColor = Color.Black;
                     button.BackColor = Color.Gray;
                     numberis0();
@@ -357,6 +360,9 @@ namespace Mine_sweeper
         {
             if (sender is Button button)
             {
+                timer1.Stop();
+                timer.Text = "000";
+                counter = 0;
                 DisableButtons = false;
                 DeleteOldButtons();
                 SetUpNewGame();
@@ -392,8 +398,15 @@ namespace Mine_sweeper
             }
             if (uncovered == 330)
             {
+                timer1.Stop();
                 MessageBox.Show("this is a test win.");
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            counter++;
+            timer.Text = counter.ToString("000");
         }
     }
 }
