@@ -70,6 +70,8 @@ namespace Mine_sweeper
 
         private void Button_MouseDown(object sender, MouseEventArgs e)
         {
+            int Flagtext;
+            int.TryParse(Bamount.Text, out Flagtext);
             if (DisableButtons)
             {
                 return;
@@ -85,6 +87,7 @@ namespace Mine_sweeper
                     button.Text = (button.Tag as Coordinate).OriginalText;
                     button.Font = new Font(calibri, 12F);
                     button.ForeColor = button.BackColor;
+                    Flagtext++;
                     if (button.Text == bomb)
                     {
                         button.Font = new Font(wingdings, 12F);
@@ -100,7 +103,9 @@ namespace Mine_sweeper
                     button.Font = new Font(wingdings, 12F);
                     button.ForeColor = Color.Black;
                     button.Text = flag;
+                    Flagtext--;
                 }
+                Bamount.Text = Flagtext.ToString();
             }
             if (e.Button == MouseButtons.Left)
             {
@@ -389,14 +394,6 @@ namespace Mine_sweeper
             {
                 MessageBox.Show("this is a test win.");
             }
-            /*int bombcount = 0;
-            foreach (var button in buttons)
-            {
-                if (button.Text == bomb)
-                {
-                    bombcount++;
-                }
-            }*/
         }
     }
 }
