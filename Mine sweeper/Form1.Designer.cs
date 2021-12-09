@@ -44,7 +44,7 @@
             this.Appearance});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1172, 40);
+            this.toolStrip1.Size = new System.Drawing.Size(1172, 44);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -56,22 +56,22 @@
             this.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("Appearance.Image")));
             this.Appearance.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Appearance.Name = "Appearance";
-            this.Appearance.Size = new System.Drawing.Size(145, 34);
+            this.Appearance.Size = new System.Drawing.Size(145, 38);
             this.Appearance.Text = "Appearance";
             // 
             // boxColorToolStripMenuItem
             // 
             this.boxColorToolStripMenuItem.Name = "boxColorToolStripMenuItem";
-            this.boxColorToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.boxColorToolStripMenuItem.Size = new System.Drawing.Size(220, 40);
             this.boxColorToolStripMenuItem.Text = "Box Color";
             this.boxColorToolStripMenuItem.Click += new System.EventHandler(this.boxColorToolStripMenuItem_Click);
             // 
             // resetButton
             // 
             this.resetButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.resetButton.Location = new System.Drawing.Point(477, 90);
+            this.resetButton.Location = new System.Drawing.Point(513, 150);
             this.resetButton.Name = "resetButton";
-            this.resetButton.Size = new System.Drawing.Size(114, 99);
+            this.resetButton.Size = new System.Drawing.Size(100, 100);
             this.resetButton.TabIndex = 1;
             this.resetButton.Text = "Reset";
             this.resetButton.UseVisualStyleBackColor = true;

@@ -108,6 +108,10 @@ namespace Mine_sweeper
                 {
                     return;
                 }
+                else if (button.Text == bomb)
+                {
+                    HitaBomb();
+                }
                 else
                 {
                     var buttons = sender as Button;
@@ -120,17 +124,10 @@ namespace Mine_sweeper
                             column = coord.Y;
                         }
                     }
-                    if (button.Text == flag && (button.Tag as Coordinate).OriginalText == noBombs)
-                    {
-                        
-                    }
                     button.ForeColor = Color.Black;
                     button.BackColor = Color.Gray;
                     numberis0();
-                }
-                if (button.Text == bomb)
-                {
-                    HitaBomb();
+                    GameWon();
                 }
             }
         }
@@ -356,17 +353,16 @@ namespace Mine_sweeper
             if (sender is Button button)
             {
                 DisableButtons = false;
-                // todo: wipe old game
                 DeleteOldButtons();
-
-                //SetUpNewGame();
+                SetUpNewGame();
             }
         }
 
         private void DeleteOldButtons()
         {
-            foreach (var item in Controls)
+            for (int i = Controls.Count - 1; i >= 0; i--)
             {
+                var item = Controls[i];
                 if (item is Button button)
                 {
                     if (button.Name == "resetButton")
@@ -376,8 +372,31 @@ namespace Mine_sweeper
                     bombs.Clear();
                     buttons.Clear();
                     this.Controls.Remove(button);
+                } 
+            }
+        }
+        private void GameWon()
+        {
+            int uncovered = 0;
+            foreach (var button in buttons)
+            {
+                if (button.BackColor == Color.Gray && button.ForeColor != button.BackColor)
+                {
+                    uncovered++;
                 }
             }
+            if (uncovered == 330)
+            {
+                MessageBox.Show("this is a test win.");
+            }
+            /*int bombcount = 0;
+            foreach (var button in buttons)
+            {
+                if (button.Text == bomb)
+                {
+                    bombcount++;
+                }
+            }*/
         }
     }
 }
